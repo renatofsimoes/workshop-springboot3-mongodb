@@ -1,5 +1,6 @@
 package com.renatofsimoes.workshopmongo.resources;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,9 +29,21 @@ public class PostResource {
 	}
 	
 	@GetMapping("/titlesearch")
-	public ResponseEntity<List<Post>> findByTtile(@RequestParam(value="text", defaultValue="") String text) {
+	public ResponseEntity<List<Post>> findByTtile(@RequestParam(defaultValue="") String text) {
 		text = URL.decodeParam(text);
 		List<Post> list = postService.findByTitle(text);
+		return ResponseEntity.ok().body(list);
+	}
+	
+	@GetMapping("/fullsearch")
+	public ResponseEntity<List<Post>> fullSearch(
+			@RequestParam(defaultValue="") String text,
+			@RequestParam(defaultValue="") String minDate,
+			@RequestParam(defaultValue="") String maxDate){
+		text = URL.decodeParam(text);
+		LocalDate min = URL.convertDate(minDate, LocalDate.ofEpochDay(0));
+		LocalDate max = URL.convertDate(minDate, LocalDate.ofEpochDay(0));
+		List<Post> list = postService.fullSearch(text, min, max);
 		return ResponseEntity.ok().body(list);
 	}
 }
