@@ -1,5 +1,5 @@
 # 🗒️🍃Web Services com Spring Boot e MongoDB
-[![NPM](https://github.com/renatofsimoes/workshop-springboot3-mongodb/blob/main/LICENSE)
+[![NPM](https://img.shields.io/npm/l/react)](https://github.com/renatofsimoes/workshop-springboot3-mongodb/blob/main/LICENSE)
 # Descrição
 >Este projeto foi desenvolvido durante o curso **Java COMPLETO Programação Orientada a Objetos + Projetos**, disponível na plataforma [Udemy](https://www.udemy.com/). O objetivo é criar uma API REST que realize as operações CRUD 
 (create, retrieve, update, delete) utilizando Java, Spring Boot e um banco de dados noSQL (MongoDB), contando com o tratamento de exceções.
